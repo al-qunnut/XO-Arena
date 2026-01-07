@@ -19,5 +19,4 @@ export const boxes = [
     { id: 7, name: "box7"},
     { id: 8, name: "box8"},
     { id: 9, name: "box9"},
-
 ]
