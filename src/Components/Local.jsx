@@ -10,13 +10,13 @@ export const settings = [
 ]
 
 export const boxes = [
-    { id: 1, name: "box1"},
-    { id: 2, name: "box2"},
-    { id: 3, name: "box3"},
-    { id: 4, name: "box4"},
-    { id: 5, name: "box5"},
-    { id: 6, name: "box6"},
-    { id: 7, name: "box7"},
-    { id: 8, name: "box8"},
-    { id: 9, name: "box9"},
+    { id: 1, value: ""},
+    { id: 2, value: ""},
+    { id: 3, value: ""},
+    { id: 4, value: ""},
+    { id: 5, value: ""},
+    { id: 6, value: ""},
+    { id: 7, value: ""},
+    { id: 8, value: ""},
+    { id: 9, value: ""},
 ]
