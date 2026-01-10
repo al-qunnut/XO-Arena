@@ -7,11 +7,21 @@ import Game from "./Components/Game"
 const App = () => {
   const [scoreX, setScoreX] = useState(0);
   const [scoreO, setScoreO] = useState(0);
+  const [gameMode, setGameMode] = useState('friend'); 
 
   return (
     <div>
-      <Navigation scoreX={scoreX} scoreO={scoreO} />
-      <Game setScoreX={setScoreX} setScoreO={setScoreO} />
+       <Navigation 
+        scoreX={scoreX} 
+        scoreO={scoreO} 
+        gameMode={gameMode}
+        setGameMode={setGameMode}
+      />
+      <Game 
+        setScoreX={setScoreX} 
+        setScoreO={setScoreO} 
+        gameMode={gameMode}
+      />
       <ScoreBoard />
     </div>
   )
