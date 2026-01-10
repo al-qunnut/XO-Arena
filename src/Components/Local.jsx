@@ -1,12 +1,14 @@
 import { FaPlay } from "react-icons/fa";
 import { AiTwotoneSound } from "react-icons/ai";
-import { TbBoxMultiple9 } from "react-icons/tb";
+import { VscDebugRestart } from "react-icons/vsc";
+
+const play = () => window.history.back();
+const restart = () => window.location.reload();
 
 export const settings = [
-    { id: 1, name: "Play", icon: <FaPlay />, url: ""},
-    { id: 2, name: "Sound", icon: <AiTwotoneSound />, url: ""},
-    { id: 3, name: "9 by 9 X0", icon: <TbBoxMultiple9 />, url: ""},
-
+    { id: 1, name: "Play", icon: <FaPlay />, url: play},
+    { id: 2, name: "Restart", icon: <VscDebugRestart />, url: restart},
+    { id: 3, name: "Sound", icon: <AiTwotoneSound />, url: ''},
 ]
 
 export const boxes = [

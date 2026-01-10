@@ -1,38 +1,44 @@
 import { useState } from "react";
-import { IoSettings } from "react-icons/io5";
+import { FaPause } from "react-icons/fa";
 import { CgProfile } from "react-icons/cg";
 import { settings } from "./Local";
 
-const Navigation = () => {
+const Navigation = ({ scoreX, scoreO }) => {
   const [ openSetting, setOpenSetting ] = useState(false)
 
   const handleSettings = () => {
     setOpenSetting( prev => !prev );
   }
+
+  const nav = () => {
+    return (
+      <div className="flex justify-center items-center text-sm mt-2">
+        <div><CgProfile size={40}  className="ml-2"/> Player 1</div> &nbsp;&nbsp;
+        <span className="text-2xl font-bold">{scoreX}</span>
+        <span className="text-2xl font-bold">&nbsp;-&nbsp;</span>
+        <span className="text-2xl font-bold">{scoreO}</span>&nbsp;
+        <div><CgProfile size={40}  className="ml-2"/> Player 2</div> &nbsp;
+      </div>
+    )
+  }
   return (
-    <div className='relative bg-white h-30 md:h-20 text-black p-3 '>
+    <div className='relative bg-white h-35 md:h-23 text-black p-3 '>
       <div className='w-11/12 m-auto grid grid-cols-2  md:grid-cols-3 border-b-2 md:border-none'>
         <div className="font-bold nowrap">
            <span className="text-green-500 italic text-2xl md:text-4xl lg:text-5xl">XO</span><span className="text-xl md:text-3xl"> Arena</span>
         </div>
         <div className="hidden md:block">
-        <div className="flex justify-center items-center text-2xl">
-            <CgProfile size={40} /> &nbsp;
-            <span> 0</span>
-            <span>&nbsp;-&nbsp;</span>
-            <span>0 </span>&nbsp;
-            <CgProfile size={40}/>
-        </div>
+         {nav()}
         </div>
         <div className="flex justify-end text-gray-700"> 
-          <IoSettings size={40} onClick={handleSettings}/>
+          <FaPause size={35} onClick={handleSettings} className="mt-2"/>
 
           {openSetting && ( 
-            <div className="z-10 absolute mt-10 bg-white text-black p-6">
-              <h1 className="font-extrabold text-3xl text-center my-4"> Settings </h1>
+            <div className="z-10 absolute top-40 left-10 right-10 md:left-70 md:right-70 mt-10 bg-white text-black p-4 md:p-20 ">
                {settings.map((setting) =>
-                <ul key={setting.id} className="text-2xl font-bold">
-                 <li className="flex border-b-2 p-4 hover:uppercase">{setting.name} &nbsp; {setting.icon}</li>
+                <ul key={setting.id} className="md:text-2xl text-sm font-bold ">
+                 <li onClick={() => { if (setting.name === "Play") { setOpenSetting(false); } else if (setting.url) { setting.url();}} }
+                 className="flex border-b-2 p-4 hover:uppercase">{setting.name} &nbsp; {setting.icon}</li>
                 </ul>
                )}
             </div>
@@ -40,13 +46,7 @@ const Navigation = () => {
         </div>
         </div>
         <div className="block md:hidden mt-4">
-         <div className="flex justify-center items-center text-2xl">
-            <CgProfile size={40} /> &nbsp;
-            <span> 0</span>
-            <span>&nbsp;-&nbsp;</span>
-            <span>0 </span>&nbsp;
-            <CgProfile size={40}/>
-        </div>
+         {nav()}
         </div>
     </div>
   )
