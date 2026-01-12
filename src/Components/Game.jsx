@@ -38,7 +38,7 @@ const Game = ({ setScoreX, setScoreO, gameMode }) => {
       6 7 8
       
       Analyze the board and make the best move. Consider:
-      1. Win if you can
+      1. Always try to win
       2. Block opponent from winning
       3. Take center if available
       4. Take corners
